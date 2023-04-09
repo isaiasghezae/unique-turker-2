@@ -4,7 +4,7 @@
 
 # unique-turker-2
 
-Flask app with a built-in database that can be used by Mechanical Turk requesters to prevent duplicate HIT access from Mechanical Turk workers.
+Full-stack Flask app with a built-in database that can be used by Mechanical Turk requesters to prevent duplicate HIT access from Mechanical Turk workers.
 
 ## 🔍Purpose
 
