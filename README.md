@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="website/static/styles/logo.png" width="200" height="200">
+</p>
+
 # unique-turker-2
 
 Flask app with a built-in database that can be used by Mechanical Turk requesters to prevent duplicate HIT access from Mechanical Turk workers.
