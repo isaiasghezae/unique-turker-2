@@ -1,6 +1,6 @@
 # unique-turker-2
 
-Minimalist web app with a built-in database that can be used by Mechanical Turk requesters to prevent duplicate HIT access from Mechanical Turk workers.
+Flask app with a built-in database that can be used by Mechanical Turk requesters to prevent duplicate HIT access from Mechanical Turk workers.
 
 ## 🔍Purpose
 
