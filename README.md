@@ -2,6 +2,15 @@
   <img src="website/static/styles/logo.png" width="200" height="200">
 </p>
 
+<p align="center">
+  <a href="https://img.shields.io/github/license/Isu21842/unique-turker-2?color=yellow">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-<COLOR>.svg">
+  </a>
+  <a href="https://pypi.org/project/Flask/">
+    <img alt="PyPI - Flask" src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white">
+  </a>
+</p>
+
 # unique-turker-2
 
 Full-stack Flask app with a built-in database that can be used by Mechanical Turk requesters to prevent duplicate HIT access from Mechanical Turk workers.
