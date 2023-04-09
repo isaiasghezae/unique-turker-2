@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BEGINNING OF BOOT STRAP CSS-->
+    <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    crossorigin="anonymous"
+  />
+  <!-- END OF BOOTSTRAPP CSS -->
+  <!-- Here is my own css: -->
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+    <title>Unique Turker 2</title>
+</head>
+<body>
+    <div class = 'content'>
+        <!-- LOGO -->
+        <br>
+        <br>
+        <div class='main-title-wrapper'>
+            <div id = 'logo'>  <img src= "{{ url_for('static', filename = 'styles/logo.png') }}" width='25%'>
+                </div>
+        <div class = 'flex-container'>
+            <div>
+
+                <h1>Unique Turker 2</a>
+                </h1>
+
+                    <!-- insert horizontal break here -->
+                    <hr class = 'main-hr'>
+                  
+                <!-- this is where extended content will be included -->
+                {% block info %} {% endblock %}
+
+
+                <!-- BOOT STRAP STUFF-->
+                <script
+                src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"
+              ></script>
+              <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"
+              ></script>
+              <script
+                src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"
+              ></script>
+</body>
+</html>

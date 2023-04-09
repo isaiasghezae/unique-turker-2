@@ -1,0 +1,101 @@
+body{
+    font-family: Helvetica, Roboto, Arial, sans-serif;
+    line-height:1.5;
+    background:#f0f5f0;
+    font-size:17px;
+    color:#131313;
+}
+
+a {
+    color: #354da6;
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration:underline;
+    /* color:#05467d; */
+}
+
+* > :first-child { 
+    margin-top: 0 !important;
+}
+
+
+.content{
+    padding:20px;
+    padding-bottom:10px;
+    /* background:#eeeeee; */
+    width:60%;
+    max-width:800px;
+    margin-left:auto;
+    margin-right:auto;
+    /* border:2px solid black; */
+    /* box-shadow: 15px 15px 0px #686868; */
+    box-sizing:border-box;
+}
+
+.flex-container{
+    display:center;
+    flex-wrap:wrap;
+    padding-top:2px;
+}
+
+.section-title{
+    font-size:20px;
+    font-weight:bold;
+    width:20%;
+    padding-right:15px;
+    box-sizing:border-box;
+}
+
+.section-content{
+    width:80%;
+}
+
+.full-width-content{
+    width:100%;
+}
+
+.no-margin-top{
+    margin-top:0;
+}
+
+.no-margin-bottom{
+    margin-bottom:0px;
+}
+
+.no-padding-top{
+    padding-top:0px;
+}
+
+.main-title{
+    font-size:30px;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-weight:bold;
+}
+
+.main-title-wrapper {
+    margin-top:10px;
+    text-align:center;
+}
+
+.dot-span{
+    padding-left:5px;
+    padding-right:5px;
+}
+
+#logo{
+    max-width:80vw;
+    max-height:15vw;
+    position: relative;
+    margin: auto;
+    top: 0;
+    left: 17em;
+    right: 0;
+    bottom: 0;
+}
+
+img {
+    display:block;
+}

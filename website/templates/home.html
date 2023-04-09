@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block info %} 
+
+This is the home page. Input your unique identifier as a random string of numbers and letters. 
+<br> </br> 
+
+<i>Please use this already-generated random string as your Unique Identifier:</i> 
+
+<br></br>
+
+<b>{{ output }}</b>
+
+<br> </br> 
+
+<form method="POST">
+    <h3 align="center">Enter Unique Identifier Here:</h3>
+    <div class="form-group">
+      <input
+        type="identifier"
+        class="form-control"
+        id="identifier"
+        name="identifier"
+        placeholder=""
+        size="35"
+        required
+      />
+    </div>
+
+    <h3 align="center">Enter Survey Link Here:</h3>
+    <div class="form-group">
+      <input
+        type="url"
+        class="form-control"
+        id="survey_link"
+        name="survey_link"
+        placeholder="https://your-qualtrics-survey-link.com"
+        size="35"
+        required
+      />
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-warning">Get Script</button>
+  </form>
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+      {% for message in messages %}
+      <br></br>
+      <p><b>{{ message }}</b></p>
+      {% endfor %}
+  {% endif %}
+  {% endwith %}
+  {% block body %}{% endblock %}
+
+{% endblock %}
