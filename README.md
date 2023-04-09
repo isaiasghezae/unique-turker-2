@@ -22,4 +22,4 @@ Steps on how to use the web app:
 
 ## ✨Demo✨
 
-![](demo.gif)
+<img src="demo.gif" width="700" height="400" alt="Demo GIF">
