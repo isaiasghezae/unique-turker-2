@@ -57,7 +57,7 @@ Of course, you are free to alter the HIT HTML source code any way you'd like but
 
 ### _Final but most important step_
 
-Lastly, once you copy the HIT HTML source code, upload it to your MTurk HIT. If using the template provided, you will likely see that it says "URL not shown because there is an error with Javascript on your computer. To perform this HIT, you must have Javascript and cookies enabled on your browser." somewhere when previewing the HIT, which is completely fine and just means that MTurk recognizes the JavaScript code in the HIT HTML source code.
+Lastly, once you copy the HIT HTML source code, upload it to your MTurk HIT. If using the template provided, you will likely see that it says "_URL not shown because there is an error with Javascript on your computer. To perform this HIT, you must have Javascript and cookies enabled on your browser._" somewhere when previewing the HIT, which is completely fine and just means that MTurk recognizes the JavaScript code in the HIT HTML source code.
 
 ## 📊Accessing the Database
 
