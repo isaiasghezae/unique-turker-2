@@ -31,7 +31,7 @@ Steps for setting up and deploying the app:
 
 2. Upload the repository source code on any platform that can host web applications (e.g., Heroku, PythonAnywhere, Docker).
 
-3. Make sure to change `https://LINK-TO-YOUR-DATABASE.COM` in output.html to be the URL to your actual web app.
+3. Make sure to change `https://LINK-TO-YOUR-DATABASE.COM/check_worker_eligibility` in output.html to be the URL to your actual web app. It's important that the URL ends with `/check_worker_eligibility` since this is the route that handles communication with MTurk.
 
 4. Deploy the web app online.
 

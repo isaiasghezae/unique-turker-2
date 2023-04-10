@@ -37,7 +37,7 @@
   <textarea class="text-box" rows="10" cols="50" readonly>
 <!-- 
 **NOTE** The following is an example of some HTML code that you can use for your HIT. This deviates only slightly from the basic HIT HTML template that Mechanical Turk provides but it now includes the functionality to interact with the site with your online database. The only thing you need to do is 
-replace "https://LINK-TO-YOUR-DATABASE.COM" with the actual URL to your site. You also need to make sure that your site uses a secure HTTPS port.
+replace "https://LINK-TO-YOUR-DATABASE.COM/check_worker_eligibility" with the actual URL to your site. It's important that the URL ends with `/check_worker_eligibility` since this is the route that handles communication with MTurk. You also need to make sure that your site uses a secure HTTPS port.
 
 Feel free to alter this but make sure that it contains the snippet of code that grabs the MTurk worker's worker ID
 and checks that against your own database.
@@ -107,7 +107,7 @@ and checks that against your own database.
         var workerId = mturkworkerID;
         var uniqueId = "{{ identifier }}"; // the unique ID the user inputted
     
-        var url = "https://LINK-TO-YOUR-DATABASE.COM"; // IMPORTANT: This is where you put the link to your database
+        var url = "https://LINK-TO-YOUR-DATABASE.COM/check_worker_eligibility"; // IMPORTANT: This is where you put the link to your database
         var request = new XMLHttpRequest();
         request.open("POST", url, false); // false indicates synchronous request
     
