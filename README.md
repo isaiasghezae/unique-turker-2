@@ -43,13 +43,15 @@ There are two pages in this web app: the home page and the HTML output page.
 
 Once your app is running online, you will see two fields: a field where you can enter a unique identifier and another for you to upload the survey link that your workers will access (e.g., the Qualtrics survey that workers will take).
 
-The app automatically creates a randomly-generated string of letters and numbers that you can use for the unique ID. This unique ID is essentially the "key" for your particular HIT. This unique ID can be anything though it must be atleast 12 characters long.
+The app automatically creates a randomly-generated string of letters and numbers that you can use for the unique ID. This unique ID is essentially the "key" for your particular HIT. This unique ID can be anything though it must be at least 12 characters long.
 
 Once you enter the unique ID and survey link, click "Get Script" to enter the HTML output page.
 
 ### _HTML Output Page_
 
-The HTML output page contains the HIT HTML source code that you can upload to your MTurk HIT. The HIT code that is provided is always the same but there are two things that change everytime you submit the home page: the unique ID as well as the qualtrics survey link. The default HIT code provided is a slight extension of the basic HIT HTML source code that MTurk provides. The only thing you need to do is replace `https://LINK-TO-YOUR-DATABASE.COM` with the actual URL to your site. You also need to make sure that your site uses a secure HTTPS port (i.e., starts with "https").
+The HTML output page contains the HIT HTML source code that you can upload to your MTurk HIT. The HIT code that is provided is always the same but there are two things that change everytime you submit the home page: the unique ID as well as the qualtrics survey link.
+
+The default HIT code provided is a slight extension of the basic HIT HTML source code that MTurk provides. The only thing you need to do is replace `https://LINK-TO-YOUR-DATABASE.COM` with the actual URL to your site. You also need to make sure that your site uses a secure HTTPS port (i.e., starts with "https"). As a bonus for Qualtrics users, I've already set up the provided source code to append the important embedded data variables when recruiting participants from MTurk (i.e., the MID and AID variables).
 
 Of course, you are free to alter the HIT HTML source code any way you'd like but make sure that it contains the snippet of code that grabs the MTurk worker's worker ID and checks that against your own database.
 
