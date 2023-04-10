@@ -11,7 +11,7 @@
   </a>
 </p>
 
-# Unique Turker 2: Python Application for Researchers to Manage Worker Access to Mechanical Turk HITs
+# Unique Turker 2: Python Application for Researchers to Manage Worker Access to HITs on Amazon Mechanical Turk
 
 Full-stack Flask app with a built-in database that can be used by Mechanical Turk requesters to prevent duplicate HIT access from Mechanical Turk workers.
 
