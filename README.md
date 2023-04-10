@@ -31,7 +31,7 @@ Steps for setting up and deploying the app:
 
 2. Upload the repository source code on any platform that can host web applications (e.g., Heroku, PythonAnywhere, Docker).
 
-3. Make sure to change the site in `output.HTML` to redirect to your actual site.
+3. Make sure to change `https://LINK-TO-YOUR-DATABASE.COM` in output.html to be the URL to your actual web app.
 
 4. Deploy the web app online.
 
@@ -49,7 +49,7 @@ Once you enter the unique ID and survey link, click "Get Script" to enter the HT
 
 ### _HTML Output Page_
 
-The HTML output page contains the HIT HTML source code that you can upload to your MTurk HIT. The HIT code that is provided is always the same but there are two things that change everytime you submit the home page: the unique ID as well as the qualtrics survey link. The default HIT code provided is a slight extension of the basic HIT HTML source code that MTurk provides. The only thing you need to do is replace "https://LINK-TO-YOUR-DATABASE.COM" with the actual URL to your site. You also need to make sure that your site uses a secure HTTPS port (i.e., starts with "https").
+The HTML output page contains the HIT HTML source code that you can upload to your MTurk HIT. The HIT code that is provided is always the same but there are two things that change everytime you submit the home page: the unique ID as well as the qualtrics survey link. The default HIT code provided is a slight extension of the basic HIT HTML source code that MTurk provides. The only thing you need to do is replace `https://LINK-TO-YOUR-DATABASE.COM` with the actual URL to your site. You also need to make sure that your site uses a secure HTTPS port (i.e., starts with "https").
 
 Of course, you are free to alter the HIT HTML source code any way you'd like but make sure that it contains the snippet of code that grabs the MTurk worker's worker ID and checks that against your own database.
 
