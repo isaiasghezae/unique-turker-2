@@ -79,4 +79,5 @@ In this structure, one unique identifier in the Uniqueid table can be associated
 
 ## ✨Demo✨
 
+_Generating unique ID for a new HIT and obtaining the HTML source code to be uploaded to MTurk_
 <img src="demo.gif" width="700" height="400" alt="Demo GIF">
