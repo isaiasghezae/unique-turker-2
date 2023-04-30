@@ -24,7 +24,7 @@ Unique Turker was a service created by Myle Ott that was designed for researcher
 This simple diagrams breaks down how the server interacts with a HIT:
 
 <p align="left">
-  <img src="diagram.png" width="600" height="300">
+  <img src="diagram.png" width="700" height="350">
 </p>
 
 \*Note that there was a way for some workers to bypass Unique Turker in the past and so I'm similarly not expecting for perfect prevention of duplicate workers. Indeed, I've run a few HITs to see how effective the app is and, as expected, very, very few workers had repeated responses (e.g., 2 out of 500 workers in my first run).
