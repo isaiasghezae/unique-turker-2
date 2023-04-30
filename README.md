@@ -21,6 +21,12 @@ Unique Turker was a service created by Myle Ott that was designed for researcher
 
 `Unique Turker 2` is a software that I created which does exactly what Unique Turker did. Instead of offering and maintaining a database for others to use, I've provided the source code for anyone to set up their own living and breathing server that can interact with their MTurk HITs to record worker data and, importantly, prevent multiple workers from accessing the same HIT. It's packaged as a `Flask` application that users can readily download and host somewhere online (e.g., Heroku, Docker). Once deployed, users can access their web app whenever they'd like to deploy a new HIT, generate a unique id, and receive the custom HIT HTML code that communicates with their web app. As workers enter your HIT, worker IDs are stored in a SQLite database which the app uses to manage access to your HIT.
 
+This simple diagrams breaks down how the server interacts with a HIT:
+
+<p align="left">
+  <img src="diagram.png" width="600" height="300">
+</p>
+
 \*Note that there was a way for some workers to bypass Unique Turker in the past and so I'm similarly not expecting for perfect prevention of duplicate workers. Indeed, I've run a few HITs to see how effective the app is and, as expected, very, very few workers had repeated responses (e.g., 2 out of 500 workers in my first run).
 
 ## ⬆️Deploying The App
@@ -35,7 +41,7 @@ Steps for setting up and deploying the app:
 
 4. Deploy the web app online.
 
-## 👨 💻How To Use
+## 👨 💻How to Use
 
 There are two pages in this web app: the home page and the HTML output page.
 
