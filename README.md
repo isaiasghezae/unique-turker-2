@@ -99,7 +99,6 @@ In this structure, one unique identifier in the Uniqueid table can be associated
 If you're using Kubernetes, you might deploy a helmchart like below:
 
 ```
----
 # yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
