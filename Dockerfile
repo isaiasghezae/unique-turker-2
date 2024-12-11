@@ -38,11 +38,7 @@ RUN apk add --no-cache \
   git \
   && git clone https://github.com/isaiasghezae/unique-turker-2.git . \
   && pip install uv \
-  && uv pip install --system \
-  flask \
-  flask-cors \
-  Flask-SQLAlchemy \
-  gunicorn \
+  && uv pip install --system --requirements requirements.txt \
   && chown -R root:root /app && chmod -R 755 /app \
   && if [ -f /config/database.db ]; then \
   rm -f /app/instance/database.db; \

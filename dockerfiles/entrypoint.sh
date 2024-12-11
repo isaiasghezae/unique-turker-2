@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 APP_DB="/app/instance/database.db"
 OUTPUT_FILE=/app/website/templates/output.html
 FULL_URL="${EXPOSED_PROTO,,}://${EXPOSED_URL}"
