@@ -15,7 +15,7 @@
 
 Full-stack Flask app with a built-in database that can be used by Mechanical Turk requesters to prevent duplicate HIT access from Mechanical Turk workers.
 
-## 🔍Purpose
+## 🔍 Purpose
 
 Unique Turker was a service created by Myle Ott that was designed for researchers and developers who use Amazon's Mechanical Turk (MTurk) platform. In short, it allowed requesters to avoid the 40% MTurk fee that comes when recruiting more than 9 workers in a single batch. Although one could deploy a HIT with multiple batches of <9 workers, there is always the possibility that a worker could access the same HIT from multiple batches. To combat this, requesters could go on the Unique Turker site and obtain a snippet of code that they could include in their HIT HTML source code. This snippet of code communicated with the Unique Turker database to ensure that each worker could complete a particular HIT only once, thus preventing duplicate submissions. For academic researchers, obtaining unique responses is an especially desirable quality when collecting data as multiple data submissions from the same participant is almost always of no use. Therefore, Unique Turker was valuable for allowing researchers to not get duplicated responses while also saving money from avoiding the 40% fee.\* Unfortunately, however, Unique Turker went down in 2022 and seems to no longer be maintained.
 
@@ -29,19 +29,29 @@ This diagram breaks down how the server interacts with a HIT:
 
 \*Note that there was a way for some workers to bypass Unique Turker in the past and so I'm similarly not expecting for perfect prevention of duplicate workers. Indeed, I've run a few HITs to see how effective the app is and, as expected, very, very few workers had repeated responses (e.g., 2 out of 500 workers in my first run).
 
-## ⬆️Deploying the App
+## ⬆️ Deploying the App
 
 Steps for setting up and deploying the app:
 
-1. Download this repository.
+1. Clone this repository or download the docker image
 
-2. Make sure to change `https://LINK-TO-YOUR-DATABASE.COM/check_worker_eligibility` in output.html to be the URL to your actual web app. It's important that the URL ends with `/check_worker_eligibility` since this is the route that handles communication with MTurk.
+2. If you're cloning the repository, make sure to change `https://LINK-TO-YOUR-DATABASE.COM/check_worker_eligibility` in output.html to be the URL to your actual web app. It's important that the URL ends with `/check_worker_eligibility` since this is the route that handles communication with MTurk.
 
 3. Upload the repository source code on any platform that can host web applications (e.g., Heroku, PythonAnywhere, Docker).
 
 4. Deploy the web app online.
 
-## 👨 💻How to Use
+## 🐳 Docker Container
+
+There are some configurable environment variables.
+
+| Name          | Default               | Description                                     |
+| ------------- | --------------------- | ----------------------------------------------- |
+| EXPOSED_URL   | N/A                   | URL for web service                             |
+| EXPOSED_PROTO | `HTTPS`               | Protocol for web server, "HTTP" or "HTTPS" only |
+| CONFIG_DB     | `/config/database.db` | Path to database file                           |
+
+## 💻 Using the App
 
 There are two pages in this web app: the home page and the HTML output page.
 
@@ -81,3 +91,89 @@ In this structure, one unique identifier in the Uniqueid table can be associated
 
 _Generating unique ID for a new HIT and obtaining the HTML source code to be uploaded to MTurk_
 <img src="demo.gif" width="700" height="400" alt="Demo GIF">
+
+## Notes: Kubernetes
+
+If you're using Kubernetes, you might deploy a helmchart like below:
+
+```
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app unique-turker
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: app-template
+      version: 3.5.1
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  values:
+    controllers:
+      unique-turker:
+        type: deployment
+        annotations:
+          reloader.stakater.com/auto: "true"
+        containers:
+          app:
+            image:
+              repository: ghcr.io/liana64/unique-turker
+              tag: latest
+            env:
+              EXPOSED_URL: unique-turker.${SECRET_EXTERNAL_DOMAIN}
+            probes:
+              liveness:
+                enabled: true
+              readiness:
+                enabled: true
+            resources:
+              requests:
+                cpu: 15m
+                memory: 64Mi
+              limits:
+                memory: 256Mi
+
+    service:
+      app:
+        controller: *app
+        ports:
+          http:
+            port: 8080
+
+    ingress:
+      app:
+        className: traefik-external
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+        hosts:
+          - host: &host "unique-turker.${SECRET_EXTERNAL_DOMAIN}"
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
+        tls:
+          - secretName: unique-turker-tls
+            hosts: [*host]
+
+    persistence:
+      data:
+        storageClass: local-nvme
+        accessMode: ReadWriteOnce
+        size: 256Mb
+        retain: true
+        globalMounts:
+          - path: /config
+```
