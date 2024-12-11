@@ -23,7 +23,7 @@ Unique Turker was a service created by Myle Ott that was designed for researcher
 
 This diagram breaks down how the server interacts with a HIT:
 
-<p align="left">
+<p align="center">
   <img src="diagram.png" width="700" height="350">
 </p>
 
