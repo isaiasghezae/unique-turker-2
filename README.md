@@ -75,7 +75,7 @@ Of course, you are free to alter the HIT HTML source code any way you'd like but
 
 Lastly, once you copy the HIT HTML source code, upload it to your MTurk HIT. If using the template provided, you will likely see that it says "_URL not shown because there is an error with Javascript on your computer. To perform this HIT, you must have Javascript and cookies enabled on your browser._" somewhere when previewing the HIT, which is completely fine and just means that MTurk recognizes the JavaScript code in the HIT HTML source code.
 
-## 📊Accessing the Database
+## 📊 Accessing the Database
 
 Once you deploy your app and submit your first unique ID to be monitored by the web app, you will now see that the `database.db` file in the `instance` folder will be updated. To access your database, you can use any program that can read in SQL databases (e.g., SQLite packages in R or Python). Everytime you submit a unique id to the app, this automatically gets updated to the database. Moreover, everytime a worker accesses your HIT, their worker ID gets uploaded to the database.
 
@@ -89,8 +89,10 @@ In this structure, one unique identifier in the Uniqueid table can be associated
 
 ## ✨Demo✨
 
-_Generating unique ID for a new HIT and obtaining the HTML source code to be uploaded to MTurk_
-<img src="demo.gif" width="700" height="400" alt="Demo GIF">
+<p align="center"><em>Generating unique ID for a new HIT and obtaining the HTML source code to be uploaded to MTurk</em></p>
+<div align="center">
+    <img src="demo.gif" width="750" height="400" alt="Demo GIF">
+</div>
 
 ## Notes: Kubernetes
 
@@ -140,10 +142,17 @@ spec:
                 enabled: true
             resources:
               requests:
-                cpu: 15m
-                memory: 64Mi
+                cpu: 200m
+                memory: 128Mi
               limits:
-                memory: 256Mi
+                cpu: "1"
+                memory: 1024Mi
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                  - ALL
+              readOnlyRootFilesystem: false
 
     service:
       app:
