@@ -38,11 +38,7 @@ RUN apk add --no-cache \
   git \
   && git clone https://github.com/isaiasghezae/unique-turker-2.git . \
   && pip install uv \
-  && uv pip install --system \
-  flask \
-  flask-cors \
-  Flask-SQLAlchemy \
-  gunicorn \
+  && uv pip install --system --requirements requirements.txt \
   && chown -R root:root /app && chmod -R 755 /app \
   && if [ -f /config/database.db ]; then \
   rm -f /app/instance/database.db; \
@@ -52,8 +48,10 @@ RUN apk add --no-cache \
   rm -f /app/instance/database.db && \
   ln -s /config/database.db /app/instance/database.db; \
   fi \
-  && chown -R root:root /app && chmod -R 755 /app \
-  && chown -R nobody:nogroup /app && chmod -R 755 /config/database.db \
+  && chown -R nobody:nogroup /app \
+  && chown -R nobody:nogroup /config \
+  && chmod -R 755 /app \
+  && chmod -R 755 /config/database.db \
   && rm -rf /root/.cache /root/.cargo /tmp/*
 
 COPY ./dockerfiles/entrypoint.sh /entrypoint.sh

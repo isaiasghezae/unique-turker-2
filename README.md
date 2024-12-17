@@ -141,10 +141,17 @@ spec:
                 enabled: true
             resources:
               requests:
-                cpu: 15m
-                memory: 64Mi
+                cpu: 200m
+                memory: 128Mi
               limits:
-                memory: 256Mi
+                cpu: "1"
+                memory: 1024Mi
+            securityContext:
+              allowPrivilegeEscalation: false
+              capabilities:
+                drop:
+                  - ALL
+              readOnlyRootFilesystem: false
 
     service:
       app:
